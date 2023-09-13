@@ -1,12 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
+import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Appbar } from 'react-native-paper';
+import { Platform } from 'react-native';
+
+const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>React Native testing</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Appbar.Header>
+        <Appbar.Content title="Title" subtitle={'Subtitle'} />
+        <Appbar.Action icon="magnify" onPress={() => {}} />
+        <Appbar.Action icon={MORE_ICON} onPress={() => {}} />
+    </Appbar.Header>
   );
 }
 
